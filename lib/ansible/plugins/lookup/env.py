@@ -29,11 +29,11 @@ DOCUMENTATION = """
 
 EXAMPLES = """
 - name: Basic usage
-  debug:
+  ansible.builtin.debug:
     msg: "'{{ lookup('env', 'HOME') }}' is the HOME environment variable."
 
 - name: Example how to set default value if the variable is not defined
-  debug:
+  ansible.builtin.debug:
     msg: "'{{ lookup('env', 'USR') | default('nobody', True) }}' is the user."
 """
 

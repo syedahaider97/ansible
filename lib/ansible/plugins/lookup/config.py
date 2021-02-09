@@ -28,23 +28,23 @@ DOCUMENTATION = """
 
 EXAMPLES = """
     - name: Show configured default become user
-      debug: msg="{{ lookup('config', 'DEFAULT_BECOME_USER')}}"
+      ansible.builtin.debug: msg="{{ lookup('config', 'DEFAULT_BECOME_USER')}}"
 
     - name: print out role paths
-      debug:
+      ansible.builtin.debug:
         msg: "These are the configured role paths: {{lookup('config', 'DEFAULT_ROLES_PATH')}}"
 
     - name: find retry files, skip if missing that key
-      find:
+      ansible.builtin.find:
         paths: "{{lookup('config', 'RETRY_FILES_SAVE_PATH')|default(playbook_dir, True)}}"
         patterns: "*.retry"
 
     - name: see the colors
-      debug: msg="{{item}}"
+      ansible.builtin.debug: msg="{{item}}"
       loop: "{{lookup('config', 'COLOR_OK', 'COLOR_CHANGED', 'COLOR_SKIP', wantlist=True)}}"
 
     - name: skip if bad value in var
-      debug: msg="{{ lookup('config', config_in_var, on_missing='skip')}}"
+      ansible.builtin.debug: msg="{{ lookup('config', config_in_var, on_missing='skip')}}"
       var:
         config_in_var: UNKNOWN
 """
