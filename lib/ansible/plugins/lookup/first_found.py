@@ -33,11 +33,7 @@ DOCUMENTATION = """
 
 EXAMPLES = """
 - name: show first existing file or ignore if none do
-<<<<<<< HEAD
   ansible.builtin.debug: msg={{lookup('ansible.builtin.first_found', findme, errors='ignore')}}
-=======
-  ansible.builtin.debug: msg={{lookup('first_found', findme, errors='ignore')}}
->>>>>>> docs: add fqcn to module examples
   vars:
     findme:
       - "/path/to/foo.txt"
