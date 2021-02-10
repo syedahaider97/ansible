@@ -40,11 +40,11 @@ DOCUMENTATION = """
 """
 
 EXAMPLES = """
-- ansible.builtin.debug: msg="User in integration is {{ lookup('ini', 'user section=integration file=users.ini') }}"
+- ansible.builtin.debug: msg="User in integration is {{ lookup('ansible.builtin.ini', 'user section=integration file=users.ini') }}"
 
-- ansible.builtin.debug: msg="User in production  is {{ lookup('ini', 'user section=production  file=users.ini') }}"
+- ansible.builtin.debug: msg="User in production  is {{ lookup('ansible.builtin.ini', 'user section=production  file=users.ini') }}"
 
-- ansible.builtin.debug: msg="user.name is {{ lookup('ini', 'user.name type=properties file=user.properties') }}"
+- ansible.builtin.debug: msg="user.name is {{ lookup('ansible.builtin.ini', 'user.name type=properties file=user.properties') }}"
 
 - ansible.builtin.debug:
     msg: "{{ item }}"
