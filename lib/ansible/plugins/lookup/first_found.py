@@ -33,7 +33,7 @@ DOCUMENTATION = """
 
 EXAMPLES = """
 - name: show first existing file or ignore if none do
-  ansible.builtin.debug: msg={{lookup('ansible.builtin.first_found', findme, errors='ignore')}}
+  debug: msg={{lookup('first_found', findme, errors='ignore')}}
   vars:
     findme:
       - "/path/to/foo.txt"
@@ -43,7 +43,7 @@ EXAMPLES = """
 - name: |
         include tasks only if files exist.  Note the use of query() to return
         a blank list for the loop if no files are found.
-  ansible.builtin.import_tasks: '{{ item }}'
+  import_tasks: '{{ item }}'
   vars:
     params:
       files:
@@ -55,7 +55,7 @@ EXAMPLES = """
         copy first existing file found to /some/file,
         looking in relative directories from where the task is defined and
         including any play objects that contain it
-  ansible.builtin.copy: src={{lookup('ansible.builtin.first_found', findme)}} dest=/some/file
+  copy: src={{lookup('first_found', findme)}} dest=/some/file
   vars:
     findme:
       - foo
@@ -63,7 +63,7 @@ EXAMPLES = """
       - bar
 
 - name: same copy but specific paths
-  ansible.builtin.copy: src={{lookup('ansible.builtin.first_found', params)}} dest=/some/file
+  copy: src={{lookup('first_found', params)}} dest=/some/file
   vars:
     params:
       files:
@@ -75,8 +75,8 @@ EXAMPLES = """
         - /tmp/staging
 
 - name: INTERFACES | Create Ansible header for /etc/network/interfaces
-  ansible.builtin.template:
-    src: "{{ lookup('ansible.builtin.first_found', findme)}}"
+  template:
+    src: "{{ lookup('first_found', findme)}}"
     dest: "/etc/foo.conf"
   vars:
     findme:
@@ -84,7 +84,7 @@ EXAMPLES = """
       - "default_foo.conf"
 
 - name: read vars from first file found, use 'vars/' relative subdir
-  ansible.builtin.include_vars: "{{lookup('ansible.builtin.first_found', params)}}"
+  include_vars: "{{lookup('first_found', params)}}"
   vars:
     params:
       files:

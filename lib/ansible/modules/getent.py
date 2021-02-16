@@ -53,39 +53,39 @@ author:
 
 EXAMPLES = '''
 - name: Get root user info
-  ansible.builtin.getent:
+  getent:
     database: passwd
     key: root
-- ansible.builtin.debug:
+- debug:
     var: getent_passwd
 
 - name: Get all groups
-  ansible.builtin.getent:
+  getent:
     database: group
     split: ':'
-- ansible.builtin.debug:
+- debug:
     var: getent_group
 
 - name: Get all hosts, split by tab
-  ansible.builtin.getent:
+  getent:
     database: hosts
-- ansible.builtin.debug:
+- debug:
     var: getent_hosts
 
 - name: Get http service info, no error if missing
-  ansible.builtin.getent:
+  getent:
     database: services
     key: http
     fail_key: False
-- ansible.builtin.debug:
+- debug:
     var: getent_services
 
 - name: Get user password hash (requires sudo/root)
-  ansible.builtin.getent:
+  getent:
     database: shadow
     key: www-data
     split: ':'
-- ansible.builtin.debug:
+- debug:
     var: getent_shadow
 
 '''

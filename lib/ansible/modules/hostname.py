@@ -46,11 +46,11 @@ options:
 
 EXAMPLES = '''
 - name: Set a hostname
-  ansible.builtin.hostname:
+  hostname:
     name: web01
 
 - name: Set a hostname specifying strategy
-  ansible.builtin.hostname:
+  hostname:
     name: web01
     strategy: systemd
 '''

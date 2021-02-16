@@ -42,7 +42,7 @@ author:
 EXAMPLES = r'''
 ---
 - name: Asynchronous yum task
-  ansible.builtin.yum:
+  yum:
     name: docker-io
     state: present
   async: 1000

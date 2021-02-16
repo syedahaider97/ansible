@@ -68,12 +68,12 @@ notes:
 
 EXAMPLES = '''
 - name: Ensure group "somegroup" exists
-  ansible.builtin.group:
+  group:
     name: somegroup
     state: present
 
 - name: Ensure group "docker" exists with correct gid
-  ansible.builtin.group:
+  group:
     name: docker
     state: present
     gid: 1750
